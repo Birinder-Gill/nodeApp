@@ -2,7 +2,7 @@ const express = require("express");
 const fyers = require("fyers-api-v2");
 
 const app = express();
-const port = 3000;
+const port = 8080;
 
 app.get("/test", (req, res) => {
   res.send("All good");
