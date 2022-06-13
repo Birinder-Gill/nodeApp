@@ -5,7 +5,7 @@ const app = express();
 const port = 8080;
 
 app.get("/test", (req, res) => {
-  res.send("All good");
+  res.send("All good For now :(");
 });
 
 app.get("/start", (req, res) => {
