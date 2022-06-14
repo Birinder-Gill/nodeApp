@@ -4,8 +4,23 @@ const fyers = require("fyers-api-v2");
 const app = express();
 const port = 8080;
 
+
+// get the Console class
+const { Console } = require("console");
+// get fs module for creating write streams
+const fs = require("fs");
+
+// make a new logger
+const myLogger = new Console({
+  stdout: fs.createWriteStream("normalStdout.txt"),
+});
+
+
+
+var te = 1;
 app.get("/test", (req, res) => {
-  res.send("All good For now :(");
+    te++;
+  res.send(`TE IS ${te}`);
 });
 
 app.get("/start", (req, res) => {
@@ -21,8 +36,8 @@ app.get("/start", (req, res) => {
   };
 
   fyers.fyers_connect(reqBody, function (data) {
-    console.log(data);
-    res.send(data);
+    myLogger.log(data);
+    te++;
     //write your code here
   });
 });
